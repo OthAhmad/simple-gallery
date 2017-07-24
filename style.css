@@ -91,3 +91,6 @@ div.button.next{
   padding: 50px;
   line-height: calc(100vh - 90px);
 }
+.notshow{
+  display: none;
+}

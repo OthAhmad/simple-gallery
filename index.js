@@ -16,6 +16,16 @@ $(document).ready(function () {
       var $li = $('<li>' + (index + 1) + '</li>');
 
       $li.on('click', function() {
+        if(index === 0){
+          $(".back").addClass("notshow");
+          $(".next").removeClass("notshow");
+        }else if(index === array.length-1){
+          $(".next").addClass("notshow");
+          $(".back").removeClass("notshow");
+        }else{
+          $(".back").removeClass("notshow");
+          $(".next").removeClass("notshow");
+        }
         $h1.text(item.title);
         $body.css('background-image', 'url('+item.src+')');
         $link
@@ -25,6 +35,7 @@ $(document).ready(function () {
           $(this).addClass("active");
       });
 
+    if(index === 0) $li.trigger('click');
       // that we add to the list ($ul)
       $ul.append($li);
     });
@@ -39,6 +50,6 @@ $(document).ready(function () {
       var $liback = $liactive.prev();
       $liback.trigger('click');
     });
-    $('body').append($h1, $ul, $link)
+    $('body').append($h1, $ul, $link);
   });
 });
